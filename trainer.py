@@ -54,7 +54,11 @@ morse = {'A':".-",
 
 ''' returns a list of indices *** IN s1 *** of matching characters '''
 ''' and only returns one of the solutions, don't need every one anyways '''
+''' specifically the lcs with all characters closest to the end '''
+''' so, use a trick, reverse the strings and outputs, to get the substring '''
+''' with all characters closest to the beginning '''
 def lcs(s1, s2):
+    s1, s2 = s1[::-1], s2[::-1] #reverse strings
     #use the matrix method with linear space
     prev_row = []
     for row_number in range(len(s1)+1):
@@ -63,7 +67,7 @@ def lcs(s1, s2):
             if row_number*col_number == 0:
                 row.append((0,[])) #insert 0 pads for ease of algorithm 
                 continue
-            if s1[row_number-1] == s2[col_number-1]: #match
+            if s1[row_number-1] == s2[col_number-1]: #match, use immediately
                 prior_entry = prev_row[col_number-1]
                 new_index = row_number-1 #of s1
                 row.append((prior_entry[0]+1, prior_entry[1]+[new_index]))
@@ -72,7 +76,7 @@ def lcs(s1, s2):
                 prior_B = prev_row[col_number]
                 row.append(prior_A if prior_A[0] >= prior_B[0] else prior_B)
         prev_row = row
-    return row[-1][1]
+    return [len(s1)-1-n for n in row[-1][1]] #unreverse outputs
 
 
 ''' simple transform from [-1,1] to [0,255] '''
