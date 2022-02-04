@@ -16,6 +16,6 @@ initializes a trainer.
 
 - `translate()` translates input you give into morse code
 
-!["assets/screenshot.png"](Screenshot of operation)
+![Screenshot of operation](assets/screenshot.png)
 
 Relies on portaudio, you may need to install that.
