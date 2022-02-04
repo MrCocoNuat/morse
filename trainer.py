@@ -248,3 +248,4 @@ class Trainer:
         string = input().upper()
 
         self.play_string(string)
+        print()
