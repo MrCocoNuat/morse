@@ -8,7 +8,8 @@ init()
 t1 = trainer.Trainer(wpm=30, visual=True)
 t2 = trainer.Trainer(wpm=12, farnsworth=True)
 
-while True: #there's just no reason to exit!
+while True: #there's just no reason, no reason to exit!
+    print("")
     t1.translate()
 
 

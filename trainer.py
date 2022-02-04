@@ -126,9 +126,9 @@ class Trainer:
 
         self.words = self.load_list_of_words()
 
-        print("Speed is set to",round(1.2/self.wait_time),"wpm")
+        print("New trainer set to",round(1.2/self.wait_time),"wpm")
         if farnsworth:
-            print("Farnsworth timing is activated")
+            print(" Farnsworth timing activated")
         print()
         time.sleep(0.25)
 
